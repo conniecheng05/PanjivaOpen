@@ -6,12 +6,14 @@ import xlrd
 
 
 # open chrome, login
+
 driver = webdriver.Chrome("Test/Driver/chromedriver.exe")
 driver.get("https://panjiva.com/account/login")
 driver.find_element_by_name("email").send_keys("ccheng@cambridgefx.com")
 driver.find_element_by_name("password").send_keys("CambridgeCcheng")
 
 # found out the path is gonna change frequently, now only catch these two paths
+
 try:
     driver.find_element_by_id("account_login").click()
 except NoSuchElementException:
@@ -22,6 +24,7 @@ except NoSuchElementException:
     print('')
 
 # try to see which path work
+
 try:
     driver.find_element_by_xpath('//*[@id="wm-shoutout-103922"]/div[1]').click()
 except NoSuchElementException:
